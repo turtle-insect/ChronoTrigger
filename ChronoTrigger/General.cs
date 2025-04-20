@@ -32,6 +32,12 @@ namespace ChronoTrigger
 			set => Util.WriteNumber(0x0287, 1, value, 0, 255);
 		}
 
+		public String AirShip
+		{
+			get => SaveData.Instance().ReadText(0x0D08, 10);
+			set => SaveData.Instance().WriteText(0x0D08, 10, value);
+		}
+
 		public uint PartyNo1
 		{
 			get => SaveData.Instance().ReadNumber(0x0D38, 1);
