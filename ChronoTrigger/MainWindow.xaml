@@ -12,6 +12,7 @@
 	</Window.DataContext>
 	<Window.Resources>
 		<local:ItemIDConverter x:Key="ItemIDConverter"/>
+		<local:PartyIDConverter x:Key="PartyIDConverter"/>
 		<local:ChoiceItemConverter x:Key="ChoiceItemConverter"/>
 	</Window.Resources>
 	<DockPanel>
@@ -62,7 +63,14 @@
 				</Grid>
 			</TabItem>
 			<TabItem Header="Character">
-				
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<ListBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name"/>
+				</Grid>
 			</TabItem>
 			<TabItem Header="Item">
 				<TabControl>
@@ -199,6 +207,16 @@
 						</ListBox>
 					</TabItem>
 				</TabControl>
+			</TabItem>
+			<TabItem Header="Party">
+				<StackPanel>
+					<ComboBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name"
+							  SelectedIndex="{Binding General.PartyNo1, Converter={StaticResource PartyIDConverter}}"/>
+					<ComboBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name"
+							  SelectedIndex="{Binding General.PartyNo2, Converter={StaticResource PartyIDConverter}}"/>
+					<ComboBox ItemsSource="{Binding Characters}" DisplayMemberPath="Name"
+							  SelectedIndex="{Binding General.PartyNo3, Converter={StaticResource PartyIDConverter}}"/>
+				</StackPanel>
 			</TabItem>
 		</TabControl>
 	</DockPanel>

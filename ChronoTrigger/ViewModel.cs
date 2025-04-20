@@ -90,6 +90,12 @@ namespace ChronoTrigger
 				Importants.Add(new Item(0x0BB4 + i * 4));
 			}
 
+			Characters.Clear();
+			for (uint i = 0; i < 7; i++)
+			{
+				Characters.Add(new Character(0x045C + i * 96, 0x0C98 + i * 16));
+			}
+
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(General)));
 		}
 

@@ -31,5 +31,23 @@ namespace ChronoTrigger
 			get => SaveData.Instance().ReadNumber(0x0287, 1);
 			set => Util.WriteNumber(0x0287, 1, value, 0, 255);
 		}
+
+		public uint PartyNo1
+		{
+			get => SaveData.Instance().ReadNumber(0x0D38, 1);
+			set => SaveData.Instance().WriteNumber(0x0D38, 1, value);
+		}
+
+		public uint PartyNo2
+		{
+			get => SaveData.Instance().ReadNumber(0x0D39, 1);
+			set => SaveData.Instance().WriteNumber(0x0D39, 1, value);
+		}
+
+		public uint PartyNo3
+		{
+			get => SaveData.Instance().ReadNumber(0x0D3A, 1);
+			set => SaveData.Instance().WriteNumber(0x0D3A, 1, value);
+		}
 	}
 }
