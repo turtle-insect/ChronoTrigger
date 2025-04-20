@@ -44,6 +44,9 @@ namespace ChronoTrigger
 			All.AddRange(Accessories);
 			All.AddRange(Item);
 			All.AddRange(Imp);
+			All.RemoveAll((item) => item.Value == 0);
+			var item = Weapon.Find((item) => item.Value == 0);
+			if(item != null) All.Insert(0, item);
 		}
 
 		public NameValueInfo? Search<Type>(List<Type> list, uint id)
