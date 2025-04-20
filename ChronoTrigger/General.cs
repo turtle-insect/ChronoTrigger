@@ -8,6 +8,12 @@ namespace ChronoTrigger
 {
 	internal class General
 	{
+		public uint SaveCount
+		{
+			get => SaveData.Instance().ReadNumber(0x0D48, 4);
+			set => Util.WriteNumber(0x0D48, 4, value, 0, 9999999);
+		}
+
 		public uint Money
 		{
 			get => SaveData.Instance().ReadNumber(0x0D44, 4);
