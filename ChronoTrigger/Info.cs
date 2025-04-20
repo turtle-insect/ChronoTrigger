@@ -9,6 +9,11 @@ namespace ChronoTrigger
 	internal class Info
 	{
 		private static Info mThis = new Info();
+		public List<NameValueInfo> All { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Weapon { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Armor { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Helmet { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Accessories { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Item { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Imp { get; private set; } = new List<NameValueInfo>();
 
@@ -26,8 +31,19 @@ namespace ChronoTrigger
 
 		private void Initialize()
 		{
+			AppendList("info\\weapon.txt", Weapon);
+			AppendList("info\\armor.txt", Armor);
+			AppendList("info\\helmet.txt", Helmet);
+			AppendList("info\\accessories.txt", Accessories);
 			AppendList("info\\item.txt", Item);
 			AppendList("info\\imp.txt", Imp);
+
+			All.AddRange(Weapon);
+			All.AddRange(Armor);
+			All.AddRange(Helmet);
+			All.AddRange(Accessories);
+			All.AddRange(Item);
+			All.AddRange(Imp);
 		}
 
 		public NameValueInfo? Search<Type>(List<Type> list, uint id)

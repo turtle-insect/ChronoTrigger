@@ -28,7 +28,7 @@ namespace ChronoTrigger
 			get => SaveData.Instance().ReadNumber(mAddress + 2, 2);
 			set
 			{
-				SaveData.Instance().WriteNumber(mAddress + 2, 2, value);
+				Util.WriteNumber(mAddress + 2, 2, value, 0, 99);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
 			}
 		}

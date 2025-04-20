@@ -17,10 +17,15 @@ namespace ChronoTrigger
 
 		public Info Info { get; init; } = Info.Instance();
 		public ICommand OpenFileCommand { get; init; }
+		public ICommand ForceOpenFileCommand { get; init; }
 		public ICommand SaveFileCommand { get; init; }
 		public ICommand ChoiceItemCommand { get; init; }
 
 		public General General { get; init; } = new();
+		public ObservableCollection<Item> Weapons { get; init; } = new();
+		public ObservableCollection<Item> Armors { get; init; } = new();
+		public ObservableCollection<Item> Helmets { get; init; } = new();
+		public ObservableCollection<Item> Accessories { get; init; } = new();
 		public ObservableCollection<Item> Items { get; init; } = new();
 		public ObservableCollection<Item> Importants { get; init; } = new();
 		public ObservableCollection<Character> Characters { get; init; } = new();
@@ -42,16 +47,41 @@ namespace ChronoTrigger
 		public ViewModel()
 		{
 			OpenFileCommand = new ActionCommand(OpenFile);
+			ForceOpenFileCommand = new ActionCommand(ForceOpenFile);
 			SaveFileCommand = new ActionCommand(SaveFile);
 			ChoiceItemCommand = new ActionCommand(ChoiceItem);
 		}
 
 		private void Initialize()
 		{
-			Items.Clear();
+			Weapons.Clear();
 			for (uint i = 0; i < 111; i++)
 			{
-				Items.Add(new Item(0x06FC + i * 4));
+				Weapons.Add(new Item(0x06FC + i * 4));
+			}
+
+			Armors.Clear();
+			for (uint i = 0; i < 50; i++)
+			{
+				Armors.Add(new Item(0x08B8 + i * 4));
+			}
+
+			Helmets.Clear();
+			for (uint i = 0; i < 39; i++)
+			{
+				Helmets.Add(new Item(0x0980 + i * 4));
+			}
+
+			Accessories.Clear();
+			for (uint i = 0; i < 59; i++)
+			{
+				Accessories.Add(new Item(0x0A1C + i * 4));
+			}
+
+			Items.Clear();
+			for (uint i = 0; i < 43; i++)
+			{
+				Items.Add(new Item(0x0B08 + i * 4));
 			}
 
 			Importants.Clear();
@@ -65,10 +95,20 @@ namespace ChronoTrigger
 
 		private void OpenFile(Object? param)
 		{
+			OpenFile(false);
+		}
+
+		private void ForceOpenFile(Object? param)
+		{
+			OpenFile(true);
+		}
+
+		private void OpenFile(bool force)
+		{
 			var dlg = new OpenFileDialog();
 			if (dlg.ShowDialog() == false) return;
 
-			if (SaveData.Instance().Open(dlg.FileName, false) == false)
+			if (SaveData.Instance().Open(dlg.FileName, force) == false)
 			{
 				MessageBox.Show("Failed");
 				return;

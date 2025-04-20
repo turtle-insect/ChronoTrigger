@@ -12,12 +12,12 @@
 	</Window.DataContext>
 	<Window.Resources>
 		<local:ItemIDConverter x:Key="ItemIDConverter"/>
-		<local:ImpIDConverter x:Key="ImpIDConverter"/>
 	</Window.Resources>
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
 			<MenuItem Header="File">
-				<MenuItem Header="Open" Command="{Binding OpenFileCommand}"/>
+				<MenuItem Header="Open..." Command="{Binding OpenFileCommand}"/>
+				<MenuItem Header="Force Open..." Command="{Binding ForceOpenFileCommand}"/>
 				<MenuItem Header="Save" Command="{Binding SaveFileCommand}"/>
 			</MenuItem>
 		</Menu>
@@ -59,8 +59,8 @@
 			</TabItem>
 			<TabItem Header="Item">
 				<TabControl>
-					<TabItem Header="Item">
-						<ListBox ItemsSource="{Binding Items}">
+					<TabItem Header="Weapon">
+						<ListBox ItemsSource="{Binding Weapons}">
 							<ListBox.ItemTemplate>
 								<DataTemplate>
 									<StackPanel Orientation="Horizontal">
@@ -69,6 +69,70 @@
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
 												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
 												CommandParameter="{Binding}"/>
+										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</TabItem>
+					<TabItem Header="Armor">
+						<ListBox ItemsSource="{Binding Armors}">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Horizontal">
+										<Label Content="Count"/>
+										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
+										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
+										CommandParameter="{Binding}"/>
+										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</TabItem>
+					<TabItem Header="Helmet">
+						<ListBox ItemsSource="{Binding Helmets}">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Horizontal">
+										<Label Content="Count"/>
+										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
+										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
+										CommandParameter="{Binding}"/>
+										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</TabItem>
+					<TabItem Header="Accessories">
+						<ListBox ItemsSource="{Binding Accessories}">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Horizontal">
+										<Label Content="Count"/>
+										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
+										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
+										CommandParameter="{Binding}"/>
+										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
+									</StackPanel>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</TabItem>
+					<TabItem Header="Item">
+						<ListBox ItemsSource="{Binding Items}">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<StackPanel Orientation="Horizontal">
+										<Label Content="Count"/>
+										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
+										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
+										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
+										CommandParameter="{Binding}"/>
 										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
@@ -85,7 +149,7 @@
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
 									Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
 									CommandParameter="{Binding}"/>
-										<Label Content="{Binding ID, Converter={StaticResource ImpIDConverter}}"/>
+										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
 							</ListBox.ItemTemplate>

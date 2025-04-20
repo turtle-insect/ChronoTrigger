@@ -13,7 +13,7 @@ namespace ChronoTrigger
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			var id = (uint)value;
-			var name = Info.Instance().Search(Info.Instance().Item, id)?.Name;
+			var name = Info.Instance().Search(Info.Instance().All, id)?.Name;
 			if (name == null) name = $"ID : {id}";
 			return name;
 		}
