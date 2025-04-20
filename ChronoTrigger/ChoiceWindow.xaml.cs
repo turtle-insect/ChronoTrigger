@@ -21,6 +21,10 @@ namespace ChronoTrigger
 	{
 		public enum ChoiceType
 		{
+			Weapon,
+			Armor,
+			Helmet,
+			Accessories,
 			Item,
 			Important,
 		}
@@ -68,7 +72,29 @@ namespace ChronoTrigger
 		private void CreateItemList(String filter)
 		{
 			ListBoxItem.Items.Clear();
-			List<NameValueInfo> items = Info.Instance().Item;
+			List<NameValueInfo> items = Info.Instance().Weapon;
+			switch(Type)
+			{
+				case ChoiceType.Armor:
+					items = Info.Instance().Armor;
+					break;
+
+				case ChoiceType.Helmet:
+					items = Info.Instance().Helmet;
+					break;
+
+				case ChoiceType.Accessories:
+					items = Info.Instance().Accessories;
+					break;
+
+				case ChoiceType.Item:
+					items = Info.Instance().Item;
+					break;
+
+				case ChoiceType.Important:
+					items = Info.Instance().Imp;
+					break;
+			}
 
 			foreach (var item in items)
 			{

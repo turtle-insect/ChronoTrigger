@@ -123,15 +123,16 @@ namespace ChronoTrigger
 
 		private void ChoiceItem(Object? param)
 		{
-			if (param is not Item item) return;
+			if (param is not Tuple<Item, ChoiceWindow.ChoiceType> tuple) return;
 
-			ChoiceItem(item, true);
+			ChoiceItem(tuple.Item1, tuple.Item2);
 		}
 
-		private void ChoiceItem(Item item, bool isItem)
+		private void ChoiceItem(Item item, ChoiceWindow.ChoiceType type)
 		{
 			var dlg = new ChoiceWindow();
 			dlg.ID = item.ID;
+			dlg.Type = type;
 			dlg.ShowDialog();
 			item.ID = dlg.ID;
 			item.Count = item.ID == 0 ? 0U : 1;

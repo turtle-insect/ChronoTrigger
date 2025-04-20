@@ -12,6 +12,7 @@
 	</Window.DataContext>
 	<Window.Resources>
 		<local:ItemIDConverter x:Key="ItemIDConverter"/>
+		<local:ChoiceItemConverter x:Key="ChoiceItemConverter"/>
 	</Window.Resources>
 	<DockPanel>
 		<Menu DockPanel.Dock="Top">
@@ -67,8 +68,14 @@
 										<Label Content="Count"/>
 										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
-												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
-												CommandParameter="{Binding}"/>
+												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}">
+											<Button.CommandParameter>
+												<MultiBinding Converter="{StaticResource ChoiceItemConverter}">
+													<Binding/>
+													<Binding Source="0"/>
+												</MultiBinding>
+											</Button.CommandParameter>
+										</Button>
 										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
@@ -83,8 +90,14 @@
 										<Label Content="Count"/>
 										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
-										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
-										CommandParameter="{Binding}"/>
+												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}">
+											<Button.CommandParameter>
+												<MultiBinding Converter="{StaticResource ChoiceItemConverter}">
+													<Binding/>
+													<Binding Source="1"/>
+												</MultiBinding>
+											</Button.CommandParameter>
+										</Button>
 										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
@@ -99,8 +112,14 @@
 										<Label Content="Count"/>
 										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
-										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
-										CommandParameter="{Binding}"/>
+												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}">
+											<Button.CommandParameter>
+												<MultiBinding Converter="{StaticResource ChoiceItemConverter}">
+													<Binding/>
+													<Binding Source="2"/>
+												</MultiBinding>
+											</Button.CommandParameter>
+										</Button>
 										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
@@ -115,8 +134,14 @@
 										<Label Content="Count"/>
 										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
-										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
-										CommandParameter="{Binding}"/>
+												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}">
+											<Button.CommandParameter>
+												<MultiBinding Converter="{StaticResource ChoiceItemConverter}">
+													<Binding/>
+													<Binding Source="3"/>
+												</MultiBinding>
+											</Button.CommandParameter>
+										</Button>
 										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
@@ -131,8 +156,14 @@
 										<Label Content="Count"/>
 										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
-										Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
-										CommandParameter="{Binding}"/>
+												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}">
+											<Button.CommandParameter>
+												<MultiBinding Converter="{StaticResource ChoiceItemConverter}">
+													<Binding/>
+													<Binding Source="4"/>
+												</MultiBinding>
+											</Button.CommandParameter>
+										</Button>
 										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
@@ -147,8 +178,14 @@
 										<Label Content="Count"/>
 										<TextBox Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Width="50"/>
 										<Button Content="..." Width="30" Margin="5, 0, 5, 0"
-									Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}"
-									CommandParameter="{Binding}"/>
+												Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MainWindow}, Path=DataContext.ChoiceItemCommand}">
+											<Button.CommandParameter>
+												<MultiBinding Converter="{StaticResource ChoiceItemConverter}">
+													<Binding/>
+													<Binding Source="5"/>
+												</MultiBinding>
+											</Button.CommandParameter>
+										</Button>
 										<Label Content="{Binding ID, Converter={StaticResource ItemIDConverter}}"/>
 									</StackPanel>
 								</DataTemplate>
